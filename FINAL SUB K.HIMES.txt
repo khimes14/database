@@ -1,0 +1,86 @@
+Create TABLE Employees (
+Employee_ID NUMBER PRIMARY KEY,	
+Employee_Fname VarChar2(30),
+Employee_Lname VarChar2(30),
+Employee_address VarChar2(60),
+Employee_state VarChar2(30),
+Employee_city VarChar2(30),
+Employee_zipcode Char(5),
+Employee_phone NUMBER,
+); 
+
+Create TABLE Buyers ( 
+Buyer_ID NUMBER PRIMARY KEY,
+Buyer_Fname VarChar2(30),
+Buyer_Lname VarChar2(30),	
+Buyer_address VarChar2(60), 
+Buyer_state VarChar2(30),
+Buyer_city VarChar2(30),
+Buyer_zipcode Char(5),
+Buyer_contract VarChar2(100), 
+Occupation VarChar2(20),
+Salary NUMBER (10,2),
+Account_number VarChar2(100), 
+Credit_score NUMBER
+);
+
+Create TABLE Agents (
+Agent_ID NUMBER PRIMARY KEY, 
+Agent_Fname VarChar2(30),
+Agent_Lname VarChar2(30),
+Agent_address VarChar2(300),
+Agent_state VarChar2(30),
+Agent_city VarChar2(30),
+Agent_zipcode Char(5),
+Agent_phone NUMBER
+);
+
+Create TABLE Agent_Buyer (
+Agent_buyer_ID NUMBER PRIMARY KEY,
+Buyer_ID NUMBER references buyers(BUYER_ID),
+Agent_ID NUMBER references agents(AGENT_ID)
+);
+
+Create TABLE Architecture (
+Architecture_ID NUMBER PRIMARY KEY,
+Style VarChar2(30),
+Description VarChar2(100)
+);
+
+Create TABLE Properties ( 
+Property_ID NUMBER PRIMARY KEY,  
+Parcel_number VarChar2(30), 
+Property_address VarChar2(60),
+Room_numbers NUMBER, 
+Sqft NUMBER, 
+Purchase_date DATE, 
+Purchase_amount NUMBER, 
+Market_value NUMBER, 
+Architecture_ID NUMBER references architecture(Architecture_ID), 		
+Agent_ID NUMBER references agents(AGENT_ID),
+Buyer_ID NUMBER references buyers(BUYER_ID)
+);
+      
+Create TABLE Contractors (
+Contractor_ID NUMBER PRIMARY KEY, 
+Contractor_Fname VarChar2(30),
+Contractor_Lname VarChar2(30),
+Contractor_address VarChar2(60),
+Contractor_phone NUMBER,
+Contractor_type VarChar2 (30)
+); 
+
+Create TABLE Agreement (
+Agreement_ID NUMBER PRIMARY KEY, 
+Agreement_description VarChar2(100),
+contractor_ID NUMBER references CONTRACTORS (CONTRACTOR_ID)
+);
+	
+Create TABLE Sales (
+Sales_ID NUMBER PRIMARY KEY,
+Buyer_ID NUMBER references buyers(buyer_id),
+Agent_ID NUMBER references agents(agent_id),
+Property_ID NUMBER references properties (property_id), 
+Price_paid NUMBER (10,2), 
+Date_sold DATE
+); 

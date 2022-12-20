@@ -1,0 +1,27 @@
+INSERT INTO EMPLOYEES 
+(Employee_ID, Employee_Fname, Employee_Lname, Employee_address, Employee_state, Employee_city, Employee_zipcode, Employee_phone) 
+VALUES (1,'Sarah','Stevens','403 Apple Court Drive','AR','little rock',72202,5944052034);
+
+INSERT INTO BUYERS (Buyer_ID, Buyer_fname, Buyer_lname, Buyer_address, Buyer_state, Buyer_city, Buyer_zipcode, Buyer_contract, occupation, salary, account_number, credit_score) 
+VALUES (200,'Lee','Jordan', '105 Eagle Drive', 'AR', 'Vilonia', 39431,'769','teacher',34000,39,700);
+
+INSERT INTO AGENTS (Agent_ID, Agent_Fname, Agent_Lname, Agent_Address, Agent_state, Agent_city, Agent_zipcode, Agent_phone) 
+VALUES (6556, 'Laura','Dryer','55 E Rose Street','AR','Vilonia',32143,4323454321);
+
+INSERT INTO AGENT_BUYER (Agent_Buyer_ID, Buyer_ID, Agent_ID) 
+VALUES (6556201, 200, 6556); 
+
+INSERT INTO ARCHITECTURE (Architecture_ID, Style, Description) 
+VALUES (12,'Ranch','Ranch'); 
+
+INSERT INTO PROPERTIES (Property_ID, Parcel_number, Property_address, Room_numbers, Sqft, purchase_date, Purchase_amount, market_value, Architecture_ID, Agent_ID)
+VALUES (100, '76','100 Hoilday Dr', 6, 2500,DATE '2022-10-14', 400000,405000,12, 6556);  
+
+INSERT INTO SALES (Sales_ID, Buyer_ID, Property_ID, Agent_ID, Price_paid, Date_sold)
+VALUES (2011006556,200,100,6556,400000,DATE '2022-11-14');
+
+INSERT INTO CONTRACTORS (Contractor_ID, Contractor_Fname, Contractor_Lname, Contractor_address, Contractor_phone, Contractor_type)
+VALUES (5988, 'Josh', 'Millsap', '33 West Hill Rd.', 5433213456,'General');
+
+INSERT INTO AGREEMENT (Agreement_ID, Agreement_description, Contractor_ID)
+VALUES (2004,'buyers put down 10% at closing',5988);
